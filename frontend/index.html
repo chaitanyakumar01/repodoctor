@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepoDoctor - AI Test Fixer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="vendor/atom-one-dark.min.css">
+    <script src="vendor/highlight.min.js"></script>
+    <script src="vendor/marked.min.js"></script>
+    <script src="vendor/purify.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>RepoDoctor 🩺</h1>
+        <p>AI agent that automatically fixes failing tests in your Python repository.</p>
+    </header>
+    <main>
+        <section id="input-section">
+            <input type="url" id="repo-url" placeholder="https://github.com/user/repo" required>
+            <button id="start-btn">Fix My Repo</button>
+        </section>
+        
+        <div id="error-message" class="hidden"></div>
+        
+        <section id="progress-section" class="hidden">
+            <div class="step-indicator">
+                <span id="step-cloning">Cloning</span> &rarr; 
+                <span id="step-testing">Running Tests</span> &rarr; 
+                <span id="step-fixing">Fixing Code</span> &rarr; 
+                <span id="step-done">Done</span>
+            </div>
+            
+            <div id="log-panel"></div>
+        </section>
+        
+        <section id="result-section" class="hidden">
+            <h2>Results</h2>
+            <div class="test-badges">
+                <div class="badge badge-red" id="badge-before">Before: Failing</div>
+                <div class="badge badge-green" id="badge-after">After: Passing</div>
+            </div>
+            <div id="summary-box"></div>
+            
+            <h3>Changes (Diff)</h3>
+            <pre><code class="language-diff" id="diff-box"></code></pre>
+            
+            <div class="actions">
+                <button id="approve-btn">Approve & Create PR</button>
+                <div id="pr-link" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

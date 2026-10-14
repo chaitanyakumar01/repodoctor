@@ -1,0 +1,32 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Testing caches
+.pytest_cache/
+
+# Node dependencies
+node_modules/
+
+# Solutions and answer keys
+ANSWER_KEY.md
+
+# Archives and build artifacts
+*.zip
+*.tar.gz
+
+# OS specific files
+.DS_Store
+Thumbs.db
